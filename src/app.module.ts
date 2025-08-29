@@ -10,11 +10,11 @@ import { TodosModule } from './todos/todos.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: 'localhost',
-      port: 1433,
-      username: 'sa',
-      password: 'your_password',
-      database: 'todos_db',
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT ?? '1433', 10),
+      username: process.env.DB_USERNAME || 'sa',
+      password: process.env.DB_PASSWORD || 'your_password',
+      database: process.env.DB_NAME || 'todos_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       options: {
