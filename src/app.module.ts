@@ -5,9 +5,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiKeyGuard } from './auth/api-key.guard';
 import { QclabModule } from './qclab/qclab.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true, // makes config available everywhere without re-importing
+    }),
     TypeOrmModule.forRoot({
       type: 'mssql',
       host: process.env.DB_HOST || 'localhost',
