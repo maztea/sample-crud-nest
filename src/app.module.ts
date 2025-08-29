@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiKeyGuard } from './auth/api-key.guard';
 import { TodosModule } from './todos/todos.module';
+import { QclabModule } from './qclab/qclab.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { TodosModule } from './todos/todos.module';
       },
     }),
     TodosModule,
+    QclabModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ApiKeyGuard }],
