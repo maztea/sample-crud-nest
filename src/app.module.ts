@@ -16,7 +16,9 @@ import { TodosModule } from './todos/todos.module';
       password: process.env.DB_PASSWORD || 'YourStrong@Passw0rd',
       database: process.env.DB_NAME || 'todos_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      migrations: [__dirname + '/migrations/*{.ts,.js}'],
+      migrationsRun: true,
+      synchronize: false,
       options: {
         encrypt: false,
       },
