@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiKeyGuard } from './auth/api-key.guard';
-import { TodosModule } from './todos/todos.module';
 import { QclabModule } from './qclab/qclab.module';
 
 @Module({
@@ -15,7 +14,7 @@ import { QclabModule } from './qclab/qclab.module';
       port: parseInt(process.env.DB_PORT ?? '1433', 10),
       username: process.env.DB_USERNAME || 'sa',
       password: process.env.DB_PASSWORD || 'YourStrong@Passw0rd',
-      database: process.env.DB_NAME || 'todos_db',
+      database: process.env.DB_NAME || 'qclab_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
       migrationsRun: true,
@@ -24,7 +23,6 @@ import { QclabModule } from './qclab/qclab.module';
         encrypt: false,
       },
     }),
-    TodosModule,
     QclabModule,
   ],
   controllers: [AppController],

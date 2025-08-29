@@ -18,7 +18,7 @@ services:
       DB_PORT: 1433
       DB_USERNAME: sa
       DB_PASSWORD: YourStrong@Passw0rd
-      DB_NAME: todos_db
+      DB_NAME: qclab_db
       API_KEY: my-secret-key
     depends_on:
       - db
